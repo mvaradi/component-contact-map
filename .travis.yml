@@ -9,5 +9,6 @@ install:
 - npm install codecov -g
 script:
 - ng test --code-coverage --watch false --browsers=ChromeHeadless
+- nyc report --reporter=json > coverage/coverage.json
 after_success:
 - codecov
