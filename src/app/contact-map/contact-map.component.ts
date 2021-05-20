@@ -146,14 +146,6 @@ export class ContactMapComponent implements OnInit {
       .style('color', 'black');
   }
 
-  // Turn the tooltip visible on mouseOver
-  private mouseOver(d): void {
-    this.tooltip.style('opacity', 1);
-    d3.select(d.target)
-      .style('stroke', 'black')
-      .style('opacity', 1);
-  }
-
   // Update the location and the text of the tooltip based on cursor location
   private mouseMove(d: any): void {
     const data = d.target.__data__;
@@ -165,12 +157,22 @@ export class ContactMapComponent implements OnInit {
       .style('width', '250px');
   }
 
+  // Turn the tooltip visible on mouseOver
+  private mouseOver(d): void {
+    this.mouseBehaviour(d, 1, 1, 'black');
+  }
+
   // Turn the tooltip invisible on mouseLeave
   private mouseLeave(d: any): void {
-    this.tooltip.style('opacity', 0);
+    this.mouseBehaviour(d, 0, 0.8, 'none');
+  }
+
+  // Set tooltip for mouseOver and mouseLeave
+  private mouseBehaviour(d: any, tooltipOpacity: number, targetOpacity: number, strokeColor: string): void {
+    this.tooltip.style('opacity', tooltipOpacity);
     d3.select(d.target)
-      .style('stroke', 'none')
-      .style('opacity', 0.8);
+      .style('stroke', strokeColor)
+      .style('opacity', targetOpacity);
   }
 
   // Draw utilities for axes ticks
