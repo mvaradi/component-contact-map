@@ -94,26 +94,30 @@ export class ContactMapComponent implements OnInit {
 
   private buildAxes(): void {
     // Build x axis
-    this.xAxis = d3
-      .axisTop(d3.scaleLinear().range([0, this.width]).domain([1, this.n]))
-      .ticks(15)
-      .tickFormat(this.formatTicks)
-      .tickSizeOuter(0);
+    this.xAxis = this.setXYAxis('top', this.width);
 
     this.gX = this.svg.append('g')
       .attr('class', 'x axis')
       .call(this.xAxis);
 
     // Build y axis
-    this.yAxis = d3
-      .axisLeft(d3.scaleLinear().range([0, this.height]).domain([1, this.n]))
-      .ticks(15)
-      .tickFormat(this.formatTicks)
-      .tickSizeOuter(0);
+    this.yAxis = this.setXYAxis('left', this.height);
 
     this.gY = this.svg.append('g')
       .attr('class', 'y axis')
       .call(this.yAxis);
+  }
+
+  private setXYAxis(position: string, rangeEnd: number): any {
+    let axis;
+    if (position === 'top') {
+      axis = d3.axisTop(d3.scaleLinear().range([0, rangeEnd]).domain([1, this.n]));
+    } else if (position === 'left') {
+      axis = d3.axisLeft(d3.scaleLinear().range([0, rangeEnd]).domain([1, this.n]));
+    }
+    return axis.ticks(15)
+      .tickFormat(this.formatTicks)
+      .tickSizeOuter(0);
   }
 
   // Join the data
