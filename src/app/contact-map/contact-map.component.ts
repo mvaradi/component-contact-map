@@ -109,11 +109,12 @@ export class ContactMapComponent implements OnInit {
   }
 
   private setXYAxis(position: string, rangeEnd: number): any {
+    const linear = d3.scaleLinear().range([0, rangeEnd]).domain([1, this.n]);
     let axis;
     if (position === 'top') {
-      axis = d3.axisTop(d3.scaleLinear().range([0, rangeEnd]).domain([1, this.n]));
+      axis = d3.axisTop(linear);
     } else if (position === 'left') {
-      axis = d3.axisLeft(d3.scaleLinear().range([0, rangeEnd]).domain([1, this.n]));
+      axis = d3.axisLeft(linear);
     }
     return axis.ticks(15)
       .tickFormat(this.formatTicks)
