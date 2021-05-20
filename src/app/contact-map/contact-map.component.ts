@@ -73,22 +73,23 @@ export class ContactMapComponent implements OnInit {
 
   private buildScales(): void {
     // Build x scale
-    this.x = d3
-      .scaleBand()
-      .range([0, this.width])
-      .domain(this.xLabels)
-      .padding(0.01);
+    this.x = this.scaleXY(this.width, this.xLabels);
 
     // Build y scale
-    this.y = d3.scaleBand()
-      .range([0, this.height])
-      .domain(this.yLabels)
-      .padding(0.01);
+    this.y = this.scaleXY(this.height, this.yLabels);
 
     // Build color scale
     this.colors = d3.scaleLinear<string, number>()
       .range(['#69b3a2', 'white'])
       .domain([0, 20]);
+  }
+
+  private scaleXY(rangeEnd: number, domain: any): any {
+    return d3
+      .scaleBand()
+      .range([0, rangeEnd])
+      .domain(domain)
+      .padding(0.01);
   }
 
   private buildAxes(): void {
