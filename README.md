@@ -13,7 +13,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Fix the zoom-out functionality
 * Fix the CodeCov configuration
 * Improve coverage
-* Remove redundancy
 
 ## Example
 
