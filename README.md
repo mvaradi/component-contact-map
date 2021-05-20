@@ -8,6 +8,13 @@ This is the code base of an Angular.js & D3.js web component to display an inter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
+### TODOS
+
+* Fix the zoom-out functionality
+* Fix the CodeCov configuration
+* Improve coverage
+* Remove redundancy
+
 ## Example
 
 <img src="https://raw.githubusercontent.com/mvaradi/component-contact-map/main/contact-map-example.png">
