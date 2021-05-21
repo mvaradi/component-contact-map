@@ -47,7 +47,7 @@ export class ContactMapComponent implements OnInit {
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')')
       .call(d3
         .zoom()
-        .scaleExtent([1, 10])
+        .scaleExtent([0.95, 10])
         .extent([[0, 10], [this.width, this.height]])
         .on('zoom', event => this.zoomed(event)));
   }
@@ -165,12 +165,12 @@ export class ContactMapComponent implements OnInit {
 
   // Turn the tooltip visible on mouseOver
   private mouseOver(d): void {
-    this.mouseBehaviour(d, 1, 1, 'black');
+    this.mouseBehaviour(d, 1, .8, 'black');
   }
 
   // Turn the tooltip invisible on mouseLeave
   private mouseLeave(d: any): void {
-    this.mouseBehaviour(d, 0, 0.8, 'none');
+    this.mouseBehaviour(d, 0, 1, 'none');
   }
 
   // Set tooltip for mouseOver and mouseLeave

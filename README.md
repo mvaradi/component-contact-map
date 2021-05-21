@@ -10,7 +10,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### TODOS
 
-* Fix the zoom-out functionality
 * Fix the CodeCov configuration
 * Improve coverage
 
