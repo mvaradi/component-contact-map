@@ -18,6 +18,45 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <img src="https://raw.githubusercontent.com/mvaradi/component-contact-map/main/contact-map-example.png">
 
+## Quick Start
+
+Retrieve the code from this repository
+```angular2html
+git clone https://github.com/mvaradi/component-contact-map.git
+```
+
+Install dependencies
+```angular2html
+cd component-contact-map
+npm install
+```
+
+Run the application locally
+```angular2html
+ng serve
+```
+
+### Data requirements
+
+The contact map is power by a single CSV file that contains information on the residue pairs and their distances.
+
+For example:
+```angular2html
+residueA,residueB,distance
+1,1,2.16
+1,2,5.51
+1,3,7.59
+1,4,9.91
+1,5,12.95
+```
+
+The current implementation expects the data on the following path:
+```angular2html
+'../assets/contact-maps/' + this.accession + '_distogram.csv'
+```
+
+Where `this.accession` is an identifier variable defined in `src/app/app.component.ts`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

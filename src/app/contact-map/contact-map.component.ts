@@ -196,7 +196,6 @@ export class ContactMapComponent implements OnInit {
     this.createTooltip();
   }
 
-  // TODO Replace with real URL once it is available
   private readData(): void {
     // Read the data
     d3.csv('../assets/contact-maps/' + this.accession + '_distogram.csv').then(res => {
