@@ -182,7 +182,7 @@ export class ContactMapComponent implements OnInit {
   }
 
   // Draw utilities for axes ticks
-  private formatTicks(d: number): any {
+  formatTicks(d: number): any {
     return d > 1000 ? d / 1000 + 'k' : d;
   }
 
